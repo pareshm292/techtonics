@@ -10,9 +10,9 @@ import com.model.Employee;
 
 public class LoginDao {
 
-	Connection connection;
+	static Connection connection = DBConnection.getConnection();
 	
-	public Employee verifyLogin(String email,String password) throws SQLException{
+	public static Employee verifyLogin(String email,String password) throws SQLException{
 		//System.out.println(connection);
 		String sql = "select * from employees where email=? and password=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class LoginDao {
 	}
 	
 	
-	public boolean isEmployeeRegistered(String email) throws SQLException{
+	public static boolean isEmployeeRegistered(String email) throws SQLException{
 		
 		String sql = "select * from employees where email=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -40,10 +40,10 @@ public class LoginDao {
 		return false;
 	}
 
-	public LoginDao() {
+	/*public LoginDao() {
 		super();
 		this.connection = DBConnection.getConnection();
 		
-	}
+	}*/
 	
 }

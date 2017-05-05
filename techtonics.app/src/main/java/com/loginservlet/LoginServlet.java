@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	
-	LoginDao logindao = new LoginDao();
+//	LoginDao logindao = new LoginDao();
    
 	public LoginServlet() {
         super();
@@ -41,9 +41,9 @@ public class LoginServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginstatus", "This is a new session");
-			if(logindao.isEmployeeRegistered(request.getParameter("email"))){
+			if(LoginDao.isEmployeeRegistered(request.getParameter("email"))){
 			
-			Employee emp = logindao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
+			Employee emp = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
 			
 			if(emp == null){
 				session.setAttribute("loginstatus", "Wrong Password,Please try to login again.");
