@@ -13,7 +13,7 @@ public class LoginDao {
 	Connection connection;
 	
 	public Employee verifyLogin(String email,String password) throws SQLException{
-		System.out.println(connection);
+		//System.out.println(connection);
 		String sql = "select * from employees where email=? and password=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, email);
@@ -21,10 +21,23 @@ public class LoginDao {
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		if(resultSet.next()){
-			System.out.println(resultSet.getString(1)+" "+resultSet.getString(2)+" "+ resultSet.getString(3));
 			return new Employee(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3));
 		}
 		return null;
+	}
+	
+	
+	public boolean isEmployeeRegistered(String email) throws SQLException{
+		
+		String sql = "select * from employees where email=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setString(1, email);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		if(resultSet.next()){
+			return true;
+		}
+		return false;
 	}
 
 	public LoginDao() {
