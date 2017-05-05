@@ -13,6 +13,7 @@
 <body>
 	
   <div class="main-wrap">
+  <a href="register.jsp" ><h4 align="left">Register</h4></a>
   <h3 align="center">${loginstatus}</h3>
         <div class="login-main">
         <form action="LoginServlet" method="post" >

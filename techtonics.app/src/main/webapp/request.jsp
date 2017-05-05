@@ -13,43 +13,29 @@
 <div id="wrap">
   <div id="header"> <span id="slogan">TechTonics</span>
     <ul>
-      <li id="current"><a href="homepage.jsp"><span>Home</span></a></li>
-      <li><a href="request.jsp"><span>Request</span></a></li>
+      <li ><a href="homepage.jsp"><span>Home</span></a></li>
+      <li id="current"><a href="request.jsp"><span>Request</span></a></li>
 		<li><a href="logout.jsp"><span>Logout</span></a></li>
     </ul>
   </div>
 
   </div>
   <br>
-  <div id="talktable" class="col-md-6">
-  <table class="table table-condensed">
-    <thead>
-      <tr >
-        <th>Title</th>
-        <th>Presenter</th>
-        <th>Description</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-<c:forEach items="${listOfTechTalks}" var="techtalk">
-	
-	<tr>
-	<form action="RegisterForTalk" method="post">
-    <td><p>${techtalk.talkTitle}</p></td>
-    <td><p>${techtalk.talkPresenter}</p></td>
-    <td><p>${techtalk.talkDescription}</p></td>
-    <td><p>${techtalk.talkDate }</p></td>
-    <td><input type="hidden" name="talktitle" value="${techtalk.talkTitle }"></td>
-    <td><input type="hidden" name="name" value="${user.empEmail }"></td>
-    <td><input type="submit" value="Register"></td>
+  <h3>Request for a TechTalk</h3>
+    <form action="RequestForTalk">
+      <p>
+        <label>Name</label>
+        <input name="name" value="Your Name" type="text" size="30" />
+        <label>Title</label>
+        <input name="talktitle" value="Topic for the Talk" type="text" size="30" />
+        <label>Description</label>
+        <textarea name="description" rows="5" cols="5"></textarea>
+        <label>Date</label>
+        <input name="date" type="date">
+        <br />
+        <input class="button" type="submit" />
+      </p>
     </form>
-    </tr>
-    
-</c:forEach>
-</tbody>
-</table>
-</div>
     <br />
 <div class="footer">
   <p> &copy; 2017 <strong>ATMECS Technologies</strong> &nbsp;&nbsp; Design by: <a href="http://www.styleshout.com/">Paresh</a> </p>
