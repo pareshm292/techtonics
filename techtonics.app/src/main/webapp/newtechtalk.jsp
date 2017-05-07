@@ -17,23 +17,28 @@
 <body>
 
 <div id="header">
-  <h1><a href="index.html">Company logo</a></h1>
+  <h1><a href="adminhomepage.jsp">Company logo</a></h1>
+  <div style="color: white">Welcome, ${user.empName }</div>
   <ul>
+  
     <li><a href="adminhomepage.jsp">Home</a></li>
-    <li><a href="approverequest.jsp">Request</a></li>
+    <li><a href="#">Requests</a></li>
 	<li><a href="newtechtalk.jsp">New Tech Talk</a></li>
 	<li><a href="logout.jsp">Logout</a></li>
 	
   </ul>
+  
 </div>
 <!-- //#header -->
 <!-- //#sub-header -->
 
 <div id="content" class="clearfix">
+
   <div id="content-inner">
+  <h2 style="color: white">Welcome, ${user.empName }</h2>
     <div class="column sidebar" style="float: none;">
 <br>
-  <h3 id="touch">Scheduke a TechTalk</h3>
+  <h3 id="touch">Schedule a TechTalk</h3>
     <form action="AddNewTalk" method="post">
       <fieldset>
       <ul>

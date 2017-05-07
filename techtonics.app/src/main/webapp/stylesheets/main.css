@@ -2,7 +2,7 @@ body { background: #fff url(../images/layout/body.gif) top center no-repeat; fon
 
 #header { width: 960px; margin: 0 auto; height: 118px; position: relative; }
 #header h1 { padding-top: 29px; }
-#header h1 a { background: url(../images/layout/logo.png) no-repeat; display: block; text-indent: -5000px; width: 156px; height: 22px; }
+#header h1 a { background: url(../images/layout/atmecs.png) no-repeat; display: block; text-indent: -5000px; width: 156px; height: 22px; }
 
 #header fieldset { background: url(../images/layout/search.png) no-repeat; width: 181px; height: 25px; position: absolute; right: 0; top: 26px; }
 #header fieldset .search { background: none; font-size: 11px; display: block; color: #969696; border: none; padding: 0 8px 0 8px; width: 138px; margin-top: 5px;  }
@@ -68,9 +68,13 @@ body { background: #fff url(../images/layout/body.gif) top center no-repeat; fon
 #content .column.sidebar p.read-more { margin-bottom: 20px; }
 #content .column.sidebar fieldset label { font-size: 11px; display: block; margin-bottom: 5px; color: #666; }
 #content .column.sidebar fieldset li { margin-bottom: 10px; }
-#content .column.sidebar fieldset .text, #content .column.sidebar fieldset textarea { border: 1px solid #e3e3e3; -webkit-border-radius: 3px;
+#content .column.sidebar fieldset .text , #content .column.sidebar fieldset textarea { border: 1px solid #e3e3e3; -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
 border-radius: 3px; padding: 3px; font-size: 11px; color: #666; width: 202px; }
+#content .column.sidebar fieldset .password , #content .column.sidebar fieldset textarea { border: 1px solid #e3e3e3; -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px; padding: 3px; font-size: 11px; color: #666; width: 202px; }
+
 #content .column.sidebar fieldset .text:hover, #content .column.sidebar fieldset textarea:hover { border: 1px solid #c5c4c4; }
 #content .column.sidebar fieldset textarea { height: 90px; width: 302px; }
 #content .column.sidebar fieldset .button { background: url(../images/buttons/read_more.gif) no-repeat; width: 95px; height: 28px; text-align: center; color: #360; font-size: 11px; border: none; cursor: pointer; }

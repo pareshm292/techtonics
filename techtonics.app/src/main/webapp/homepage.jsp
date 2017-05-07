@@ -1,3 +1,6 @@
+<%@page import="com.model.TechTalk"%>
+<%@page import="com.model.Employee"%>
+<%@page import="com.dao.register.TechTalkRegister"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -17,7 +20,8 @@
 <body>
 
 <div id="header">
-  <h1><a href="index.html">Company logo</a></h1>
+  <h1><a href="homepage.jsp">Company logo</a></h1>
+  <div style="color: white">Welcome, ${user.empName }</div>
   <ul>
     <li><a href="homepage.jsp">Home</a></li>
     <li><a href="request.jsp">Request</a></li>
@@ -48,9 +52,23 @@
     <td><p>${techtalk.talkPresenter}</p></td>
     <td><p>${techtalk.talkDescription}</p></td>
     <td><p>${techtalk.talkDate }</p></td>
+    
+    <%
+    Employee emp = (Employee)session.getAttribute("user");
+    String techtalkTitle = ((TechTalk)pageContext.getAttribute("techtalk")).getTalkTitle();
+    boolean isRegistered = TechTalkRegister.isAlreadyRegisteredForTalk(techtalkTitle, emp.getEmpEmail());
+    pageContext.setAttribute("registrationStatus", isRegistered);
+    %>
+    <c:choose>
+    <c:when test="${not registrationStatus}">
     <input type="hidden" name="talktitle" value="${techtalk.talkTitle }">
     <input type="hidden" name="email" value="${user.empEmail }">
     <td><input type="submit" value="Register"></td>
+    </c:when>
+    <c:otherwise>
+    <td><p>Already Registered</p></td>
+    </c:otherwise>
+   </c:choose>
     </form>
     </tr>
     

@@ -17,10 +17,11 @@
 <body>
 
 <div id="header">
-  <h1><a href="index.html">Company logo</a></h1>
+  <h1><a href="homepage.jsp">Company logo</a></h1>
+  <div style="color: white">Welcome, ${user.empName }</div>
   <ul>
     <li><a href="adminhomepage.jsp">Home</a></li>
-    <li><a href="approverequest.jsp">Requests</a></li>
+    <li><a href="#">Requests</a></li>
 	<li><a href="newtechtalk.jsp">New Tech Talk</a></li>
 	<li><a href="logout.jsp">Logout</a></li>
 	</ul>

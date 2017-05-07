@@ -17,7 +17,8 @@
 <body>
 
 <div id="header">
-  <h1><a href="index.html">Company logo</a></h1>
+  <h1><a href="homepage.jsp">Company logo</a></h1>
+  <div style="color: white">Welcome, ${user.empName }</div>
   <ul>
     <li><a href="homepage.jsp">Home</a></li>
     <li><a href="request.jsp">Request</a></li>
@@ -37,8 +38,8 @@
       <fieldset>
       <ul>
       <li>
-        <label>Name</label>
-        <input name="name" value="Your Name" type="text"  class="text"/>
+        <!-- <label>Name</label> -->
+        <input name="name"  value="${user.empName }" type="hidden"  class="text"/>
        </li>
        <li> 
         <label>Title</label>

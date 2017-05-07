@@ -41,6 +41,7 @@ public class ViewAttendees extends HttpServlet {
 		HttpSession session = request.getSession();
 		try {
 			ArrayList<String> talkAttendees = AdminServicesDao.techTalkAttendees(request.getParameter("talkTitle"));
+			session.setAttribute("talkTitle", request.getParameter("talkTitle"));
 			session.setAttribute("listOfAttendees", talkAttendees);
 			response.sendRedirect("viewattendees.jsp");
 		} catch (SQLException e) {

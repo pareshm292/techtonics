@@ -2,6 +2,7 @@ package com.loginservlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +29,7 @@ public class LoginServlet extends HttpServlet {
    
 	public LoginServlet() {
         super();
-        System.out.println("Login Servlet constr");
+        //System.out.println("Login Servlet constr");
     }
 
 	
@@ -40,16 +41,15 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("Login Servlet dopost");
 		try {
 			HttpSession session = request.getSession();
-			session.setAttribute("loginstatus", "This is a new session");
-			/*if(AdminLoginDao.isAdmin(request.getParameter("email"),request.getParameter("password"))){
-				Employee emp = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
-				session.setAttribute("user", emp);
-				response.sendRedirect("GetTechTalks");
-				*/
+			String email = request.getParameter("email");
+			Pattern ptr = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+					+ "atmecs.com");
+			if(ptr.matcher(email).matches()){
+				
 			
-			if(LoginDao.isEmployeeRegistered(request.getParameter("email"))){
+			if(LoginDao.isEmployeeRegistered(email)){
 			
-			Employee empnormal = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
+			Employee empnormal = LoginDao.verifyLogin(email,request.getParameter("password"));
 			
 					if(empnormal == null){
 					session.setAttribute("loginstatus", "Wrong Password,Please try to login again.");
@@ -66,7 +66,14 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("login.jsp");
 			}
 		
-		} catch (Exception e) {
+		}
+		else{
+				session.setAttribute("loginstatus", "Invalid Email.");
+				response.sendRedirect("login.jsp");
+		}
+		}
+		
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
