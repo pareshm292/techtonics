@@ -18,32 +18,20 @@
 		<li><a href="logout.jsp"><span>Logout</span></a></li>
     </ul>
   </div>
-<h4>${requestStatus}<h4>
   </div>
   <br>
   <div id="talktable" class="col-md-6">
   <table class="table table-condensed">
     <thead>
       <tr >
-        <th>Title</th>
-        <th>Presenter</th>
-        <th>Description</th>
-        <th>Date</th>
+        <th>Email</th>
       </tr>
     </thead>
     <tbody>
-<c:forEach items="${listOfTechTalks}" var="techtalk">
+<c:forEach items="${listOfAttendees}" var="emp">
 	
 	<tr>
-	<form action="ViewAttendees" method="post">
-    <td><p>${techtalk.talkTitle}</p></td>
-    <td><p>${techtalk.talkPresenter}</p></td>
-    <td><p>${techtalk.talkDescription}</p></td>
-    <td><p>${techtalk.talkDate }</p></td>
-    <td><input type="hidden" name="talkTitle" value="${techtalk.talkTitle }"></td>
-    <%-- <td><input type="hidden" name="email" value="${user.empEmail }"></td> --%>
-    <td><input type="submit" value="View Attendees"></td>
-    </form>
+    <td><p>${emp}</p></td>
     </tr>
     
 </c:forEach>

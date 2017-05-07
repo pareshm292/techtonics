@@ -15,7 +15,10 @@ public class AdminLoginDao {
 	public static boolean isAdmin(String email,String password){
 		Employee emp;
 		try {
+			
 			emp = LoginDao.verifyLogin(email, password);
+			if(emp == null)
+				return false;
 			if(emp.getEmpEmail().equals("admin@atmecs.com"))
 				return true;
 		} catch (SQLException e) {

@@ -25,11 +25,10 @@ public class LoginServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	
-//	LoginDao logindao = new LoginDao();
    
 	public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	
@@ -38,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		try {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginstatus", "This is a new session");
@@ -47,19 +46,19 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("user", emp);
 				response.sendRedirect("GetTechTalks");
 				
-			}
+			
 			if(LoginDao.isEmployeeRegistered(request.getParameter("email"))){
 			
-			Employee emp = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
+			Employee empnormal = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
 			
 			if(emp == null){
 				session.setAttribute("loginstatus", "Wrong Password,Please try to login again.");
 				response.sendRedirect("login.jsp");
 			}
 			else{
-					session.setAttribute("user", emp);
-					//request.getRequestDispatcher("GetTechTalks").forward(request, response);
-					response.sendRedirect("GetTechTalks");
+					session.setAttribute("user", empnormal);
+					request.getRequestDispatcher("GetTechTalks").forward(request, response);
+					//response.sendRedirect("GetTechTalks");
 			}
 			}
 			else{
@@ -67,7 +66,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("login.jsp");
 		}
 		
-			
+		}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
