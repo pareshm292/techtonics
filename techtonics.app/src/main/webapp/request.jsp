@@ -22,7 +22,7 @@
   </div>
   <br>
   <h3>Request for a TechTalk</h3>
-    <form action="RequestForTalk">
+    <form action="RequestForTalk" method="post">
       <p>
         <label>Name</label>
         <input name="name" value="Your Name" type="text" size="30" />

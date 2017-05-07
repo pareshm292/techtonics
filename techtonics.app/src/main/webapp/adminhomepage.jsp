@@ -13,8 +13,8 @@
 <div id="wrap">
   <div id="header"> <span id="slogan">TechTonics</span>
     <ul>
-      <li id="current"><a href="homepage.jsp"><span>Home</span></a></li>
-      <li><a href="request.jsp"><span>Request</span></a></li>
+      <li id="current"><a href="adminhomepage.jsp"><span>Home</span></a></li>
+      <li><a href="approverequests.jsp"><span>Requests</span></a></li>
 		<li><a href="logout.jsp"><span>Logout</span></a></li>
     </ul>
   </div>
@@ -35,14 +35,14 @@
 <c:forEach items="${listOfTechTalks}" var="techtalk">
 	
 	<tr>
-	<form action="RegisterForTalk" method="post">
+	<form action="ViewAttendees" method="post">
     <td><p>${techtalk.talkTitle}</p></td>
     <td><p>${techtalk.talkPresenter}</p></td>
     <td><p>${techtalk.talkDescription}</p></td>
     <td><p>${techtalk.talkDate }</p></td>
     <td><input type="hidden" name="talktitle" value="${techtalk.talkTitle }"></td>
     <td><input type="hidden" name="email" value="${user.empEmail }"></td>
-    <td><input type="submit" value="Register"></td>
+    <td><input type="submit" value="View Attendees"></td>
     </form>
     </tr>
     

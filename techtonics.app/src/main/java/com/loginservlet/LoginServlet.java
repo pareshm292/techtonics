@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.login.AdminLoginDao;
 import com.dao.login.LoginDao;
 import com.model.Employee;
 
@@ -41,6 +42,12 @@ public class LoginServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginstatus", "This is a new session");
+			if(AdminLoginDao.isAdmin(request.getParameter("email"),request.getParameter("password"))){
+				Employee emp = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
+				session.setAttribute("user", emp);
+				response.sendRedirect("GetTechTalks");
+				
+			}
 			if(LoginDao.isEmployeeRegistered(request.getParameter("email"))){
 			
 			Employee emp = LoginDao.verifyLogin(request.getParameter("email"),request.getParameter("password"));
@@ -49,15 +56,17 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("loginstatus", "Wrong Password,Please try to login again.");
 				response.sendRedirect("login.jsp");
 			}
-			else
+			else{
 					session.setAttribute("user", emp);
-					request.getRequestDispatcher("GetTechTalks").forward(request, response);
+					//request.getRequestDispatcher("GetTechTalks").forward(request, response);
+					response.sendRedirect("GetTechTalks");
 			}
-			else
+			}
+			else{
 				session.setAttribute("loginstatus", "Not Registered.Please register first.");
 				response.sendRedirect("login.jsp");
-			
-			
+		}
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();

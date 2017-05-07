@@ -23,31 +23,41 @@ public class RequestForTalk extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public RequestForTalk() {
-        super();
-        // TODO Auto-generated constructor stub
+    	super();
+    	System.out.println("Request for talk..");
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doPost(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		try {
 		
-			TechTalkRequest.requestTalk(request.getParameter("name"),
+			boolean requestStatus = TechTalkRequest.requestTalk(request.getParameter("name"),
 										request.getParameter("talktitle"), 
 										request.getParameter("description"), 
 										Date.valueOf(request.getParameter("date")));
-			
+			System.out.println(requestStatus);	
+			if(requestStatus){
+				request.setAttribute("requestStatus", "Request for "+request.getParameter("talktitle")+
+													" on date "+request.getParameter("date")+" is made.");
+			}
+			else{
+				request.setAttribute("requestStatus", "Request for "+request.getParameter("talktitle")+
+						" on date "+request.getParameter("date")+" is unsuccessful.");
+			}
+			request.getRequestDispatcher("homepage.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 

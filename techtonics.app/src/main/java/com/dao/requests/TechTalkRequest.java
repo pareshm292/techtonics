@@ -14,7 +14,7 @@ public class TechTalkRequest {
 	
 	public static boolean isTalkAlreadyRequested(String talktitle) throws SQLException{
 		
-		String sql = "select * from techtalkrequests where talktitle=?";
+		String sql = "select * from techtalkrequests where title=?";
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, talktitle);

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.login.AdminLoginDao;
 import com.dao.techtalklist.TechTalkDao;
+import com.model.Employee;
 
 /**
  * Servlet implementation class GetTechTalks
@@ -35,9 +37,16 @@ public class GetTechTalks extends HttpServlet {
 			response.sendRedirect("login.jsp");
 		}
 		try {
-			System.out.println(TechTalkDao.getAllUpcomingTalks());
+		//	System.out.println(TechTalkDao.getAllUpcomingTalks());
+			Employee emp = (Employee) session.getAttribute("user");
+			if(AdminLoginDao.isAdmin(emp.getEmpEmail(), emp.getPassword())){
+				session.setAttribute("listOfTechTalks", TechTalkDao.getAllUpcomingTalks());
+				response.sendRedirect("adminhomepage.jsp");
+			}
+			else{
 			session.setAttribute("listOfTechTalks", TechTalkDao.getAllUpcomingTalks());
 			response.sendRedirect("homepage.jsp");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
