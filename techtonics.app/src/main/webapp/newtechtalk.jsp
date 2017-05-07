@@ -19,8 +19,10 @@
 <div id="header">
   <h1><a href="index.html">Company logo</a></h1>
   <ul>
-    <li><a href="login.jsp">Login</a></li>
-	<li><a href="register.jsp">Register</a></li>
+    <li><a href="adminhomepage.jsp">Home</a></li>
+    <li><a href="approverequest.jsp">Request</a></li>
+	<li><a href="newtechtalk.jsp">New Tech Talk</a></li>
+	<li><a href="logout.jsp">Logout</a></li>
 	
   </ul>
 </div>
@@ -31,22 +33,25 @@
   <div id="content-inner">
     <div class="column sidebar" style="float: none;">
 <br>
-  <h3 id="touch">Register</h3>
-    <form action="RegisterServlet" method="post">
+  <h3 id="touch">Scheduke a TechTalk</h3>
+    <form action="AddNewTalk" method="post">
       <fieldset>
       <ul>
       <li>
-        <label>Email</label>
-        <input name="email" value="email@atmecs.com" type="text"  class="text"/>
-       </li>
-       <li>
         <label>Name</label>
-        <input name="name" type="text"  class="text"/>
+        <input name="name" value="Presenter's Name" type="text"  class="text"/>
        </li>
-      
        <li> 
-        <label>Password</label>
-        <input name="password" type="password"  class="password" />
+        <label>Title</label>
+        <input name="talktitle" value="Topic for the Talk" type="text" class="text" />
+        </li>
+        <li>
+        <label>Description</label>
+        <textarea name="description" rows="5" cols="30"></textarea>
+        </li>
+        <li>
+        <label>Date</label>
+        <input name="date" type="date">
         </li>
         <input class="button" type="submit" />
 	</ul>

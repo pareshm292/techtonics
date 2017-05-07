@@ -1,30 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
+
 <title>TechTonics</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="images/Underground.css" type="text/css" />
+
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/reset.css" />
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/main.css" />
+
+<!--[if IE 6]>
+<script type="text/javascript" src="scripts/DD_belatedPNG_0.0.7a.js"></script> 
+<script type="text/javascript" src="scripts/png_fix_elements.js"></script> 
+<![endif]-->
+
 </head>
 <body>
-<div id="wrap">
-  <div id="header"> <span id="slogan">TechTonics</span>
-    <ul>
-      <li id="current"><a href="adminhomepage.jsp"><span>Home</span></a></li>
-      <li><a href="approverequest.jsp"><span>Requests</span></a></li>
-		<li><a href="logout.jsp"><span>Logout</span></a></li>
-    </ul>
-  </div>
-  </div>
-  <br>
-  <div id="talktable" class="col-md-6">
-  <table class="table table-condensed">
-    <thead>
-      <tr >
-        <th>Email</th>
+
+<div id="header">
+  <h1><a href="index.html">Company logo</a></h1>
+  <ul>
+    <li><a href="adminhomepage.jsp">Home</a></li>
+    <li><a href="approverequest.jsp">Request</a></li>
+	<li><a href="newtechtalk.jsp">New Tech Talk</a></li>
+	<li><a href="logout.jsp">Logout</a></li>
+	</ul>
+</div>
+<!-- //#header -->
+<!-- //#sub-header -->
+
+<div id="content" class="clearfix">
+  <div id="content-inner">
+    <div class="column main">
+    <table  style="size: 100px">
+        <thead>
+      <tr  style="size: 100px">
+        <th  style="size: 100px">Email</th>
       </tr>
     </thead>
     <tbody>
@@ -36,11 +46,18 @@
     
 </c:forEach>
 </tbody>
-</table>
+      </table>
+    </div>
+      </form>
+    </div>
+  </div>
 </div>
-    <br />
-<div class="footer">
-  <p> &copy; 2017 <strong>ATMECS Technologies</strong> &nbsp;&nbsp; Design by: <a href="http://www.styleshout.com/">Paresh</a> </p>
+<!-- //#content -->
+
+<div id="footer">
+  <p>Website designed by: <a href="https://github.com/pareshm292">Paresh</a>, Code: <a href="https://github.com/pareshm292/techtonics">Repository</a></p>
 </div>
+<!-- //#footer -->
+
 </body>
 </html>

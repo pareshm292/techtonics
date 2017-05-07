@@ -1,29 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <link rel="stylesheet" href="css/style.css">
- 
-<html >
 <head>
-  <meta charset="UTF-8">
-  <title>Login Form</title>
-  
-</head>
 
+<title>Techtonics</title>
+
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/reset.css" />
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/main.css" />
+
+<!--[if IE 6]>
+<script type="text/javascript" src="scripts/DD_belatedPNG_0.0.7a.js"></script> 
+<script type="text/javascript" src="scripts/png_fix_elements.js"></script> 
+<![endif]-->
+
+</head>
 <body>
+
+<div id="header">
+  <h1><a href="index.html">Company logo</a></h1>
+  <ul>
+    <li><a href="login.jsp">Login</a></li>
+	<li><a href="register.jsp">Register</a></li>
 	
-  <div class="main-wrap">
-  <a href="register.jsp" ><h4 align="left">Register</h4></a>
-  <h3 align="center">${loginstatus}</h3>
-        <div class="login-main">
-        <form action="LoginServlet" method="post" >
-        	
-            <input type="text" name="email" placeholder="Email" class="box1 border1" >
-            <input type="password" name="password" placeholder="password" class="box1 border2">
-            <input type="submit" class="send" value="Go">
-          </form>      
-        </div>      
-    </div>
-  
+  </ul>
+</div>
+<!-- //#header -->
+<!-- //#sub-header -->
+
+<div id="content" class="clearfix">
+  <div id="content-inner">
+    <div class="column sidebar" style="float: none;">
+<br>
+  <h3 id="touch">Login</h3>
+    <form action="LoginServlet" method="post">
+      <fieldset>
+      <ul>
+      <li>
+        <label>Name</label>
+        <input name="email" value="email@atmecs.com" type="text"  class="text"/>
+       </li>
+       <li> 
+        <label>Password</label>
+        <input name="password" type="password"  class="password" />
+        </li>
+        <input class="button" type="submit" />
+	</ul>
+    </fieldset>
+    </form><!-- //#content -->
+
+<div id="footer">
+  <p>Website designed by: <a href="https://github.com/pareshm292">Paresh</a>, Code: <a href="https://github.com/pareshm292/techtonics">Repository</a></p>
+</div>
+<!-- //#footer -->
+
 </body>
 </html>

@@ -1,44 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
-<title>TechTonics</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="images/Underground.css" type="text/css" />
+
+<title>Techtonics</title>
+
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/reset.css" />
+<link type="text/css" media="screen" rel="stylesheet" href="stylesheets/main.css" />
+
+<!--[if IE 6]>
+<script type="text/javascript" src="scripts/DD_belatedPNG_0.0.7a.js"></script> 
+<script type="text/javascript" src="scripts/png_fix_elements.js"></script> 
+<![endif]-->
+
 </head>
 <body>
-<div id="wrap">
-  <div id="header"> <span id="slogan">TechTonics</span>
-    <ul>
-      <li ><a href="homepage.jsp"><span>Home</span></a></li>
-      <li id="current"><a href="request.jsp"><span>Request</span></a></li>
-		<li><a href="logout.jsp"><span>Logout</span></a></li>
-    </ul>
-  </div>
 
-  </div>
-  <br>
-  <h3>Request for a TechTalk</h3>
+<div id="header">
+  <h1><a href="index.html">Company logo</a></h1>
+  <ul>
+    <li><a href="homepage.jsp">Home</a></li>
+    <li><a href="request.jsp">Request</a></li>
+	<li><a href="logout.jsp">Logout</a></li>
+	
+  </ul>
+</div>
+<!-- //#header -->
+<!-- //#sub-header -->
+
+<div id="content" class="clearfix">
+  <div id="content-inner">
+    <div class="column sidebar" style="float: none;">
+<br>
+  <h3 id="touch">Request for a TechTalk</h3>
     <form action="RequestForTalk" method="post">
-      <p>
+      <fieldset>
+      <ul>
+      <li>
         <label>Name</label>
-        <input name="name" value="Your Name" type="text" size="30" />
+        <input name="name" value="Your Name" type="text"  class="text"/>
+       </li>
+       <li> 
         <label>Title</label>
-        <input name="talktitle" value="Topic for the Talk" type="text" size="30" />
+        <input name="talktitle" value="Topic for the Talk" type="text" class="text" />
+        </li>
+        <li>
         <label>Description</label>
-        <textarea name="description" rows="5" cols="5"></textarea>
+        <textarea name="description" rows="5" cols="30"></textarea>
+        </li>
+        <li>
         <label>Date</label>
         <input name="date" type="date">
-        <br />
+        </li>
         <input class="button" type="submit" />
-      </p>
-    </form>
-    <br />
-<div class="footer">
-  <p> &copy; 2017 <strong>ATMECS Technologies</strong> &nbsp;&nbsp; Design by: <a href="http://www.styleshout.com/">Paresh</a> </p>
+	</ul>
+    </fieldset>
+    </form><!-- //#content -->
+
+<div id="footer">
+  <p>Website designed by: <a href="http://www.agilo.hr">Paresh</a>, Code: <a href="https://github.com/pareshm292/techtonics">Repository</a></p>
 </div>
+<!-- //#footer -->
+
 </body>
 </html>

@@ -41,11 +41,13 @@ public class GetTechTalks extends HttpServlet {
 			Employee emp = (Employee) session.getAttribute("user");
 			if(AdminLoginDao.isAdmin(emp.getEmpEmail(), emp.getPassword())){
 				session.setAttribute("listOfTechTalks", TechTalkDao.getAllUpcomingTalks());
-				response.sendRedirect("adminhomepage.jsp");
+				//response.sendRedirect("adminhomepage.jsp");
+				request.getRequestDispatcher("adminhomepage.jsp").forward(request, response);
 			}
 			else{
 			session.setAttribute("listOfTechTalks", TechTalkDao.getAllUpcomingTalks());
-			response.sendRedirect("homepage.jsp");
+			//response.sendRedirect("homepage.jsp");
+			request.getRequestDispatcher("homepage.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

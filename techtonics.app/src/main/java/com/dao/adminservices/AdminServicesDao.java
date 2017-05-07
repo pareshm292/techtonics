@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.db.util.DBConnection;
+import com.model.TechTalk;
 
 public class AdminServicesDao {
 	
@@ -25,6 +26,22 @@ public class AdminServicesDao {
 		}
 		System.out.println(talkAttendees);
 		return talkAttendees;
+	}
+	
+	public static boolean addNewTalk(TechTalk techtalk) throws SQLException{
+		
+		String sql = "insert into techtalks values(?,?,?,?)";
+		
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setString(1, techtalk.getTalkTitle());
+		preparedStatement.setString(2, techtalk.getTalkPresenter());
+		preparedStatement.setString(3, techtalk.getTalkDescription());
+		preparedStatement.setDate(4, techtalk.getTalkDate());
+		
+		int res = preparedStatement.executeUpdate();
+		
+		return res>0;
+
 	}
 
 }
